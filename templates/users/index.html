@@ -1,0 +1,22 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+
+{% include 'menu.html' %}
+
+  {% for user in users %}
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="{{ user.avatar.url }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}, {{ user.age }} лет</h5>
+      <p class="card-text">{{ user.bio }}</p>
+      <a href="{% url 'datingapp:like_user' user.id %}" class="btn btn-danger">Like</a>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+{% endblock %}
+
+
+

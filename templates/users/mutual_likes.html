@@ -1,0 +1,16 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    {% include 'menu.html' %}
+  {% for like in mutual_likes %}
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="{{ like.to_user.avatar.url }}">
+    <div class="card-body">
+      <h5 class="card-title">{{ like.to_user.first_name }} {{ like.to_user.last_name }}, {{ like.to_user.age }} лет</h5>
+      <p class="card-text">{{ like.to_user.tag }}</p>
+    </div>
+  </div>
+</div>
+  {% endfor %}
+{% endblock %}
